@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;netstandard2.1;net452;net46;net461;net462;net47;net471;net472;net48;net5.0;net6.0;netcoreapp3.0;netcoreapp3.1</TargetFrameworks>
     <Authors>Edmosoft</Authors>
-    <Product>Microsoft.Office.vbaProject</Product>
+    <Product>Edmosoft.Office.vbaProject</Product>
 
     <PackageTags>vbaProject.bin,vbaProject,Macro,Office</PackageTags>
     <PackageProjectUrl>https://github.com/joele89/vbaProject</PackageProjectUrl>
@@ -11,8 +11,6 @@
     <Description>A library for reading the content of the Macros from a Macro Enabled Microsoft Office Document</Description>
 
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-
-
 
     <AssemblyName>$(MSBuildProjectName)</AssemblyName>
 
@@ -28,24 +26,18 @@
     <Version>0.0.1</Version>
     <Company>$(Authors)</Company>
 
-
     <PackageReadmeFile>README.md</PackageReadmeFile>
 
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+
   </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="Edmosoft.IO, Version=0.5.10.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\Edmosoft.IO.0.5.10\lib\net472\Edmosoft.IO.dll</HintPath>
-    </Reference>
-    <Reference Include="Edmosoft.IO.vbaCompression, Version=0.1.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\Edmosoft.IO.vbaCompression.0.1.2\lib\net472\Edmosoft.IO.vbaCompression.dll</HintPath>
-    </Reference>
-    <Reference Include="OpenMcdf, Version=2.2.1.12, Culture=neutral, PublicKeyToken=fdbb1629d7c00800, processorArchitecture=MSIL">
-      <HintPath>packages\OpenMcdf.2.2.1.12\lib\net40\OpenMcdf.dll</HintPath>
-    </Reference>
-  </ItemGroup>
 
   <ItemGroup>
     <None Include="README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="LICENSE.txt" Pack="true" PackagePath="\" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
@@ -178,4 +170,5 @@
     <PackageReference Include="Edmosoft.IO" Version="0.5.10" />
     <PackageReference Include="Edmosoft.IO.vbaCompression" Version="0.1.2" />
   </ItemGroup>
+
 </Project>
