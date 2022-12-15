@@ -1,0 +1,181 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net452;net46;net461;net462;net47;net471;net472;net48;net5.0;net6.0;netcoreapp3.0;netcoreapp3.1</TargetFrameworks>
+    <Authors>Edmosoft</Authors>
+    <Product>Microsoft.Office.vbaProject</Product>
+
+    <PackageTags>vbaProject.bin,vbaProject,Macro,Office</PackageTags>
+    <PackageProjectUrl>https://github.com/joele89/vbaProject</PackageProjectUrl>
+
+    <Description>A library for reading the content of the Macros from a Macro Enabled Microsoft Office Document</Description>
+
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+
+
+
+    <AssemblyName>$(MSBuildProjectName)</AssemblyName>
+
+    <PackageOutputPath>$(OutputPath)</PackageOutputPath>
+    <IsPublishable>True</IsPublishable>
+
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+
+    <Deterministic>true</Deterministic>
+
+    <PackageId>$(AssemblyName)</PackageId>
+    <Version>0.0.1</Version>
+    <Company>$(Authors)</Company>
+
+
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Edmosoft.IO, Version=0.5.10.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Edmosoft.IO.0.5.10\lib\net472\Edmosoft.IO.dll</HintPath>
+    </Reference>
+    <Reference Include="Edmosoft.IO.vbaCompression, Version=0.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Edmosoft.IO.vbaCompression.0.1.2\lib\net472\Edmosoft.IO.vbaCompression.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenMcdf, Version=2.2.1.12, Culture=neutral, PublicKeyToken=fdbb1629d7c00800, processorArchitecture=MSIL">
+      <HintPath>packages\OpenMcdf.2.2.1.12\lib\net40\OpenMcdf.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <PackageReference Include="OpenMcdf">
+      <Version>2.2.1.12</Version>
+    </PackageReference>
+    <PackageReference Include="System.Linq">
+      <Version>4.3.0</Version>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.1'">
+    <PackageReference Include="OpenMcdf">
+      <Version>2.2.1.12</Version>
+    </PackageReference>
+    <PackageReference Include="System.Linq">
+      <Version>4.3.0</Version>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net452'">
+    <PackageReference Include="OpenMcdf">
+      <Version>2.2.1.12</Version>
+    </PackageReference>
+    <PackageReference Include="System.Linq">
+      <Version>4.3.0</Version>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net46'">
+    <PackageReference Include="OpenMcdf">
+      <Version>2.2.1.12</Version>
+    </PackageReference>
+    <PackageReference Include="System.Linq">
+      <Version>4.3.0</Version>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net461'">
+    <PackageReference Include="OpenMcdf">
+      <Version>2.2.1.12</Version>
+    </PackageReference>
+    <PackageReference Include="System.Linq">
+      <Version>4.3.0</Version>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net462'">
+    <PackageReference Include="OpenMcdf">
+      <Version>2.2.1.12</Version>
+    </PackageReference>
+    <PackageReference Include="System.Linq">
+      <Version>4.3.0</Version>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net47'">
+    <PackageReference Include="OpenMcdf">
+      <Version>2.2.1.12</Version>
+    </PackageReference>
+    <PackageReference Include="System.Linq">
+      <Version>4.3.0</Version>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net471'">
+    <PackageReference Include="OpenMcdf">
+      <Version>2.2.1.12</Version>
+    </PackageReference>
+    <PackageReference Include="System.Linq">
+      <Version>4.3.0</Version>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net472'">
+    <PackageReference Include="OpenMcdf">
+      <Version>2.2.1.12</Version>
+    </PackageReference>
+    <PackageReference Include="System.Linq">
+      <Version>4.3.0</Version>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net48'">
+    <PackageReference Include="OpenMcdf">
+      <Version>2.2.1.12</Version>
+    </PackageReference>
+    <PackageReference Include="System.Linq">
+      <Version>4.3.0</Version>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net5.0'">
+    <PackageReference Include="OpenMcdf">
+      <Version>2.2.1.12</Version>
+    </PackageReference>
+    <PackageReference Include="System.Linq">
+      <Version>4.3.0</Version>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">
+    <PackageReference Include="OpenMcdf">
+      <Version>2.2.1.12</Version>
+    </PackageReference>
+    <PackageReference Include="System.Linq">
+      <Version>4.3.0</Version>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.0'">
+    <PackageReference Include="OpenMcdf">
+      <Version>2.2.1.12</Version>
+    </PackageReference>
+    <PackageReference Include="System.Linq">
+      <Version>4.3.0</Version>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.1'">
+    <PackageReference Include="OpenMcdf">
+      <Version>2.2.1.12</Version>
+    </PackageReference>
+    <PackageReference Include="System.Linq">
+      <Version>4.3.0</Version>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Edmosoft.IO" Version="0.5.10" />
+    <PackageReference Include="Edmosoft.IO.vbaCompression" Version="0.1.2" />
+  </ItemGroup>
+</Project>
