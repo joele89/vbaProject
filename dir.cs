@@ -2,9 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using static Microsoft.Office.vbaProject.ProjectReferences;
+using static Edmosoft.Office.vbaProject.ProjectReferences;
 
-namespace Microsoft.Office.vbaProject
+namespace Edmosoft.Office.vbaProject
 {
     internal class dir
     {

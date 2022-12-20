@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Microsoft.Office.vbaProject
+namespace Edmosoft.Office.vbaProject
 {
     public class Module
     {

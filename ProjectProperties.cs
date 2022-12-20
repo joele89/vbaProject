@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Microsoft.Office.vbaProject
+namespace Edmosoft.Office.vbaProject
 {
 
     internal class ProjectProperties
