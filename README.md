@@ -1,5 +1,6 @@
 ﻿Library for reading Macros from Macro-Enabled Office Documents
 
+Releases can be found on NUGET
 
 ## Usage
 ```
