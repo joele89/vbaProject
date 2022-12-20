@@ -23,7 +23,7 @@
     <Deterministic>true</Deterministic>
 
     <PackageId>$(AssemblyName)</PackageId>
-    <Version>0.0.2</Version>
+    <Version>0.0.3</Version>
     <Company>$(Authors)</Company>
 
     <PackageReadmeFile>README.md</PackageReadmeFile>
@@ -31,6 +31,8 @@
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     
   <RepositoryUrl>https://github.com/joele89/vbaProject</RepositoryUrl>
+    
+  <RepositoryType>git</RepositoryType>
 
   </PropertyGroup>
 
