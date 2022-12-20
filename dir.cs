@@ -193,19 +193,27 @@ namespace Edmosoft.Office.vbaProject
         }
     }
 
+    public enum ReferenceRecordType : UInt16
+    {
+        ReferenceRegistered = 0x0D,
+        ReferenceProject = 0x0E,
+        ReferenceControl = 0x2F,
+        ReferenceOrigional = 0x33
+    }
+
     public class ProjectReference
     {
         ProjectInformationRecord<string> NameRecord;
         ProjectInformationRecord<string> NameRecordUnicode;
-        public UInt16 ReferenceRecordType;
+        public ReferenceRecordType ReferenceRecordType;
         public object ReferenceRecord;
         public string Name { get { return NameRecordUnicode.Value; } }
         public ProjectReference(Edmosoft.IO.StreamReader streamReader, System.Text.Encoding mbcsEncoding)
         {
             NameRecord = new ProjectInformationRecord<string>(streamReader, mbcsEncoding, 0x16);
             NameRecordUnicode = new ProjectInformationRecord<string>(streamReader, System.Text.Encoding.Unicode, 0x3E);
-            ReferenceRecordType = streamReader.ReadUInt16();
-            switch (ReferenceRecordType)
+            ReferenceRecordType = (ReferenceRecordType)streamReader.ReadUInt16();
+            switch ((UInt16)ReferenceRecordType)
             {
                 case 0x2F:
                     ReferenceRecord = new ReferenceControl(streamReader, mbcsEncoding);
