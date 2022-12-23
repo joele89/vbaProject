@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using static Edmosoft.Office.vbaProject.ProjectReferences;
 
 namespace Edmosoft.Office.vbaProject
@@ -48,7 +49,7 @@ namespace Edmosoft.Office.vbaProject
         private System.Text.Encoding mbcsEncoding;
         public ProjectInformation(Edmosoft.IO.StreamReader streamReader)
         {
-            SysKindRecord = new ProjectInformationRecord<SysKind>(streamReader, 0x01); //2.3.4.2.1.1
+            SysKindRecord = new ProjectInformationRecord<ProjectInformation.SysKind>(streamReader, 0x01); //2.3.4.2.1.1
             try
             {
                 CompactVersionRecord = new ProjectInformationRecord<UInt32>(streamReader, 0x4A); //2.3.4.2.1.2
@@ -117,7 +118,7 @@ namespace Edmosoft.Office.vbaProject
         {
             Id = streamReader.ReadUInt16();
             UInt32 Size = streamReader.ReadUInt32();
-            if (typeof(T) == typeof(UInt32))
+            if (typeof(T) == typeof(UInt32) || typeof(T) == typeof(ProjectInformation.SysKind))
             {
                 if (Size != 4) throw new FormatException("Encoded size of UInt32 must be 0x00000004");
                 Value = (T)Convert.ChangeType(streamReader.ReadUInt32(), typeof(T));
@@ -128,7 +129,7 @@ namespace Edmosoft.Office.vbaProject
                 Value = (T)Convert.ChangeType(streamReader.ReadUInt16(), typeof(T));
             }
             else
-                throw new NotImplementedException();
+                throw new NotImplementedException("ProjectInformationRecord(StreamReader) decoder recieved type " + typeof(T).ToString());
         }
         public ProjectInformationRecord(Edmosoft.IO.StreamReader streamReader, UInt16 ExpectID)
         {
@@ -140,7 +141,12 @@ namespace Edmosoft.Office.vbaProject
                 throw new FormatException(string.Format("Requested ID does not match stream. Expected {0} Got {1}", ExpectID, Id));
             }
             UInt32 Size = streamReader.ReadUInt32();
-            if (typeof(T) == typeof(UInt32) || typeof(T).BaseType == typeof(UInt32)) 
+            if (typeof(T).BaseType == typeof(System.Enum))
+            {
+                if (Size != 4) throw new FormatException("Encoded size of UInt32 must be 0x00000004");
+                Value = (T)Enum.Parse(typeof(T), streamReader.ReadUInt32().ToString());
+            }
+            else if (typeof(T) == typeof(UInt32))
             {
                 if (Size != 4) throw new FormatException("Encoded size of UInt32 must be 0x00000004");
                 Value = (T)Convert.ChangeType(streamReader.ReadUInt32(), typeof(T));
@@ -151,7 +157,7 @@ namespace Edmosoft.Office.vbaProject
                 Value = (T)Convert.ChangeType(streamReader.ReadUInt16(), typeof(T));
             }
             else
-                throw new NotImplementedException();
+                throw new NotImplementedException("ProjectInformationRecord(StreamReader, UInt16) decoder recieved type " + typeof(T).ToString() + " with base " + typeof(T).BaseType.ToString());
         }
         public ProjectInformationRecord(Edmosoft.IO.StreamReader streamReader, System.Text.Encoding encoding)
         {
@@ -160,7 +166,7 @@ namespace Edmosoft.Office.vbaProject
             if (typeof(T) == typeof(string))
                 Value = (T)Convert.ChangeType(encoding.GetString(streamReader.ReadBlock((int)Size)), typeof(T));
             else
-                throw new NotImplementedException();
+                throw new NotImplementedException("ProjectInformationRecord(StreamReader, Encoding) decoder recieved type " + typeof(T).ToString());
         }
         public ProjectInformationRecord(Edmosoft.IO.StreamReader streamReader, System.Text.Encoding encoding, UInt16 ExpectID)
         {
@@ -175,7 +181,7 @@ namespace Edmosoft.Office.vbaProject
             if (typeof(T) == typeof(string))
                 Value = (T)Convert.ChangeType(encoding.GetString(streamReader.ReadBlock((int)Size)), typeof(T));
             else
-                throw new NotImplementedException();
+                throw new NotImplementedException("ProjectInformationRecord(StreamReader, Encoding, UInt16) decoder recieved type " + typeof(T).ToString());
         }
     }
 
@@ -417,7 +423,7 @@ namespace Edmosoft.Office.vbaProject
             }
         }
 
-        
+
     }
 }
 
