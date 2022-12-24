@@ -34,7 +34,7 @@
     
   <RepositoryType>git</RepositoryType>
     
-  <PackageReleaseNotes>add .net 7.0 support</PackageReleaseNotes>
+  <PackageReleaseNotes></PackageReleaseNotes>
 
   </PropertyGroup>
 
